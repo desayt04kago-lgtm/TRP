@@ -62,7 +62,10 @@ class Window(QMainWindow):
             print("Text:", text, "Status:", status)
 
     def showColorDialog(self):
-        pass
+        color = QColorDialog.getColor()  # окно для выбора цвета
+        if color.isValid():  # если цвет выбран верно - возвращает True
+            print("Color:", color.name())
+            self.lbl.setStyleSheet(f"color: {color.name()};")  # установили кнопке задний фон
 
 
     def showFontDialog(self):
