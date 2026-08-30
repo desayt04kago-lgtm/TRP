@@ -74,7 +74,13 @@ class Window(QMainWindow):
             self.lbl.setFont(font)
 
     def showFileDialog(self):
-        pass
+        try:
+            file_name, _ = QFileDialog.getOpenFileName(self, "Открыть файл", "")
+            if file_name:  # проверили, что игрок действительно выбрал файл
+                file = open(file_name, "r", encoding="utf-8")
+                self.lbl.setText(file.read())
+        except Exception as error:
+            print(error)
 
 def start_app():
     app = QApplication(sys.argv)
