@@ -69,7 +69,9 @@ class Window(QMainWindow):
 
 
     def showFontDialog(self):
-        pass
+        font, status = QFontDialog.getFont()  # окно для выбора шрифта
+        if status:
+            self.lbl.setFont(font)
 
     def showFileDialog(self):
         pass
